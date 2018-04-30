@@ -1,8 +1,5 @@
 const redux = require('redux');
-
-
 const create_store = redux.createStore;
-
 
 const initial_state = { counter: 1 }
 
@@ -37,7 +34,19 @@ const store = create_store(rootReducer);
 
 console.log(store.getState());
 
-//Dispating
+
+//Store Sucbription
+
+store.subscribe(()=>{
+
+    console.log('[Store State updated]',store.getState());
+
+})
+
+
+
+
+//Dispatching
 store.dispatch(
     {
         type:'INC_COUNTER',
@@ -53,5 +62,3 @@ store.dispatch(
         }
     }
 );
-
-console.log(store.getState());
