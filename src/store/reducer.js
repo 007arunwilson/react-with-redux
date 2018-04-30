@@ -6,29 +6,19 @@ const initialState = {
 const reducer = (state = initialState,action) => {
 
 
-    if(action.type === 'INCREMENT')
-    {
+    switch(action.type){
+        case 'INCREMENT':
         return {...state,counter:state.counter+1};
-    }
-
-    if(action.type === 'DECREMENT')
-    {
+        case 'DECREMENT':
         return {...state,counter:state.counter-1};
-    }
-
-    if(action.type === 'ADD')
-    {
+        case 'ADD':
         return {...state,counter:state.counter+action.payload.value};
-    }
-
-    if(action.type === 'SUBSTRACT')
-    {
+        case 'SUBSTRACT':
         return {...state,counter:state.counter-action.payload.value};
+        default:
+        return {...state};
+        break;
     }
-
-
-
-    return {...state};
 
 }
 
