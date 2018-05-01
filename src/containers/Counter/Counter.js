@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import {connect} from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
@@ -8,6 +8,7 @@ class Counter extends Component {
 
     render () {
         return (
+            <Fragment>
             <div>
                 <CounterOutput value={this.props.ctr} />
                 <CounterControl label="Increment" clicked={this.props.onIncrementHandler} />
@@ -15,6 +16,8 @@ class Counter extends Component {
                 <CounterControl label="Add 5" clicked={this.props.onAddHandler}  />
                 <CounterControl label="Subtract 5" clicked={this.props.onSubstractHandler}  />
             </div>
+            <hr/>
+            </Fragment>
         );
     }
 }
