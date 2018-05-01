@@ -21,8 +21,15 @@
     text-decoration: none;
 }
 
+.snapListPrnt ul li a:hover {
+
+    background: #f7f7f7;
+
+}
+
 .snapListPrnt ul li {
 
     list-style: none;
+    display: inline-block;
 
 }

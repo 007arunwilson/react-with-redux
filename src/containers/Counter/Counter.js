@@ -12,7 +12,7 @@ class Counter extends Component {
 
         let snaplist_jsx = this.props.snapShots.map(snapShotObj=>{
 
-            return <li key={snapShotObj.id}  ><a href="javascript:;">{snapShotObj.value}</a></li>
+            return <li title="Click to delete this snap shot" key={snapShotObj.id}  ><a onClick={()=>this.props.onCounterDeleteSnapShotHandler(snapShotObj.id)} href="javascript:;">{snapShotObj.value}</a></li>
 
         })
 
@@ -65,6 +65,9 @@ const mapDispatchToProps = dispatch => {
         },
         onCounterSnapShotHandler:()=>{
             dispatch({type:'SAVECOUNTERSNAPSHOT'})
+        },
+        onCounterDeleteSnapShotHandler:(snapShotId)=>{
+            dispatch({type:'DELETECOUNTERSNAPSHOT',payload:{id:snapShotId}})
         }
     }
 
