@@ -1,0 +1,28 @@
+.SaveBtnParent {
+    padding: 10px;
+}
+
+.SaveBtnParent button {
+    padding: 10px 10px;
+    background-color: #2795f0;
+    border: 1px solid #37a5ed;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.snapListPrnt ul li a {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin: 2px;
+    background: #ececec;
+    color: #2196F3;
+    text-decoration: none;
+}
+
+.snapListPrnt ul li {
+
+    list-style: none;
+
+}

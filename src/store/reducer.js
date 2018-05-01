@@ -1,6 +1,7 @@
 
 const initialState = {
-    counter:0
+    counter:0,
+    snapShots:[]
 }
 
 const reducer = (state = initialState,action) => {
@@ -15,6 +16,8 @@ const reducer = (state = initialState,action) => {
         return {...state,counter:state.counter+action.payload.value};
         case 'SUBSTRACT':
         return {...state,counter:state.counter-action.payload.value};
+        case 'SAVECOUNTERSNAPSHOT':
+        return {...state,snapShots:state.snapShots.concat({value:state.counter,id:new Date().getTime()})};
         default:
         return {...state};
         break;
