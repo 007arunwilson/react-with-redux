@@ -1,6 +1,7 @@
 import React, { Component,Fragment } from 'react';
 import {connect} from 'react-redux';
 
+import * as actionTypes from '../../store/actions';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
@@ -52,22 +53,22 @@ const mapDispatchToProps = dispatch => {
 
     return {
         onIncrementHandler:()=>{
-            dispatch({type:'INCREMENT'})
+            dispatch({type:actionTypes.INCREMENT})
         },
         onDecrementHandler:()=>{
-            dispatch({type:'DECREMENT'})
+            dispatch({type:actionTypes.DECREMENT})
         },
         onAddHandler:()=>{
-            dispatch({type:'ADD',payload:{value:5}})
+            dispatch({type:actionTypes.ADD,payload:{value:5}})
         },
         onSubstractHandler:()=>{
-            dispatch({type:'SUBSTRACT',payload:{value:5}})
+            dispatch({type:actionTypes.SUBSTRACT,payload:{value:5}})
         },
         onCounterSnapShotHandler:()=>{
-            dispatch({type:'SAVECOUNTERSNAPSHOT'})
+            dispatch({type:actionTypes.SAVECOUNTERSNAPSHOT})
         },
         onCounterDeleteSnapShotHandler:(snapShotId)=>{
-            dispatch({type:'DELETECOUNTERSNAPSHOT',payload:{id:snapShotId}})
+            dispatch({type:actionTypes.DELETECOUNTERSNAPSHOT,payload:{id:snapShotId}})
         }
     }
 
