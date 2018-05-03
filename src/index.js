@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './store/reducer';
 import {combineReducers} from 'redux';
@@ -17,7 +17,28 @@ const rootReducer = combineReducers(
         snapshots:snapshotsReducer,
     }
 )
-const store  = createStore(rootReducer);
+
+const logger = store => {
+
+    return next => {
+
+        return action => {
+
+            console.log('[Middleware] Dispatching',action);
+
+            const result = next(action);
+
+            console.log('[Middleware] after Dispatching',store.getState());
+
+            return result;
+
+        }
+
+    }
+
+}
+
+const store  = createStore(rootReducer,applyMiddleware(logger));
 
 ReactDOM.render(<Provider store={store} ><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
