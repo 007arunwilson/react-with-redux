@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes';
 
 export const saveCounterSnapShot = (payload) => {
 
-    return function (dispatch) {
+    return function (dispatch,getState) {
 
         const promiseInstance = new Promise(resolve => {
             setTimeout(() => {
@@ -11,13 +11,16 @@ export const saveCounterSnapShot = (payload) => {
         });
 
         promiseInstance.then(()=>{
+
+            console.log('[State snapshots before update]',getState().snapshots)
+
             return dispatch(
             {
                 type: actionTypes.SAVECOUNTERSNAPSHOT,
                 payload: payload
             });
         });
-        
+
     }
 };
 
