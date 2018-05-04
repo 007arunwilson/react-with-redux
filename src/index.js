@@ -23,11 +23,11 @@ const logger = store => {
 
         return action => {
 
-            console.log('[Middleware] Dispatching',action);
+            //console.log('[Middleware] Dispatching',action);
 
             const result = next(action);
 
-            console.log('[Middleware] after Dispatching',store.getState());
+            //console.log('[Middleware] after Dispatching',store.getState());
 
             return result;
 
