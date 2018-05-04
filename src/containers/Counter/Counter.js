@@ -2,14 +2,7 @@ import React, { Component,Fragment } from 'react';
 import {connect} from 'react-redux';
 
 import * as actionTypes from '../../store/actions/actions';
-import {
-    increment,
-    decrement,
-    add,
-    substract,
-    saveCounterSnapShot,
-    deleteCounterSnapShot
-} from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/actions';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
@@ -61,22 +54,22 @@ const mapDispatchToProps = dispatch => {
 
     return {
         onIncrementHandler:()=>{
-            dispatch(increment())
+            dispatch(actionCreators.increment())
         },
         onDecrementHandler:()=>{
-            dispatch(decrement())
+            dispatch(actionCreators.decrement())
         },
         onAddHandler:()=>{
-            dispatch(add({value:5}))
+            dispatch(actionCreators.add({value:5}))
         },
         onSubstractHandler:()=>{
-            dispatch(substract({value:5}))
+            dispatch(actionCreators.substract({value:5}))
         },
         onCounterSnapShotHandler:(snapshot)=>{
-            dispatch(saveCounterSnapShot({snapshot:snapshot}))
+            dispatch(actionCreators.saveCounterSnapShot({snapshot:snapshot}))
         },
         onCounterDeleteSnapShotHandler:(snapShotId)=>{
-            dispatch(deleteCounterSnapShot({id:snapShotId}))
+            dispatch(actionCreators.deleteCounterSnapShot({id:snapShotId}))
         }
     }
 
