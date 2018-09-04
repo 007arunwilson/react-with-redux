@@ -28,7 +28,7 @@ class Counter extends Component {
             </div>
             <hr/>
             <div className="SaveBtnParent">
-                <button onClick={()=>this.props.onCounterSnapShotHandler(this.props.ctr)} >Save Couter Snapshot</button>
+                <button onClick={this.props.onCounterSnapShotHandler} >Save Couter Snapshot</button>
             </div>
             <div className="snapListPrnt">
                 <ul>
@@ -43,8 +43,8 @@ class Counter extends Component {
 const mapStateToProps = reduxState => {
 
     return {
-        ctr:reduxState.counter.counter,
-        snapShots:reduxState.snapshots.snapShots,
+        ctr:reduxState.counter,
+        snapShots:reduxState.snapShots,
     }
     
 }
@@ -64,8 +64,8 @@ const mapDispatchToProps = dispatch => {
         onSubstractHandler:()=>{
             dispatch({type:actionTypes.SUBSTRACT,payload:{value:5}})
         },
-        onCounterSnapShotHandler:(snapshot)=>{
-            dispatch({type:actionTypes.SAVECOUNTERSNAPSHOT,payload:{snapshot:snapshot}})
+        onCounterSnapShotHandler:()=>{
+            dispatch({type:actionTypes.SAVECOUNTERSNAPSHOT})
         },
         onCounterDeleteSnapShotHandler:(snapShotId)=>{
             dispatch({type:actionTypes.DELETECOUNTERSNAPSHOT,payload:{id:snapShotId}})
